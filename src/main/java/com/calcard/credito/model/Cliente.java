@@ -3,7 +3,6 @@ package com.calcard.credito.model;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -16,10 +15,10 @@ public class Cliente {
     private String cpf;
     private Integer idade;
     private String sexo;
-    private String estadoCivil;
+    private EstadoCivil estadoCivil;
     private String estado;
     private Integer dependentes;
-    private BigDecimal renda;
+    private double renda;
 
 
     public Long getId() {
@@ -61,11 +60,11 @@ public class Cliente {
         this.sexo = sexo;
     }
 
-    public String getEstadoCivil() {
+    public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
 
-    public void setEstadoCivil(String estadoCivil) {
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 
@@ -85,11 +84,11 @@ public class Cliente {
         this.dependentes = dependentes;
     }
 
-    public BigDecimal getRenda() {
+    public double getRenda() {
         return renda;
     }
 
-    public void setRenda(BigDecimal renda) {
+    public void setRenda(double renda) {
         this.renda = renda;
     }
 }

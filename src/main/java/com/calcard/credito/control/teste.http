@@ -1,29 +1,39 @@
+POST http://localhost:8081/credito/consult
+Content-Type: application/json
+
+{
+  "cpf": "011.252.370-66"
+}
+
+###
+
+###
 GET http://localhost:8080/credito/inquiry/3
 Accept: application/json
 
 ###
 
 ###
-DELETE http://localhost:8080/cliente/2
+DELETE http://localhost:8081/cliente/2
 Accept: application/json
 
 ###
-GET http://localhost:8080/cliente/list
+GET http://localhost:8081/cliente/list
 Accept: application/json
 
 ###
-POST http://localhost:8080/cliente/save
+POST http://localhost:8081/cliente/save
 Content-Type: application/json
 
 {
-  "nome": "Franco Bruno Corteletti",
-  "cpf": "011.252.370-66",
-  "idade": 35,
+  "nome": "Leco6",
+  "cpf": "011.252.370-33",
+  "idade": 30,
   "sexo": "M",
-  "estadoCivil": "S",
+  "estadoCivil": "SOLTEIRO",
   "estado": "RS",
   "dependentes": 0,
-  "renda": 1.300
+  "renda": 2500
 }
 
 ###

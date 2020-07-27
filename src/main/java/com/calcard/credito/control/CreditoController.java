@@ -1,11 +1,9 @@
 package com.calcard.credito.control;
 
 import com.calcard.credito.model.Credito;
+import com.calcard.credito.model.CreditoViewModel;
 import com.calcard.credito.service.CreditoService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
@@ -18,8 +16,8 @@ public class CreditoController {
         this.creditoService = creditoService;
     }
 
-    @GetMapping("/enquiry")
-    public Credito consult(String cpf) {
-        return this.creditoService.enquiry(cpf);
+    @PostMapping("/consult")
+    public Credito consult(@RequestBody CreditoViewModel model) {
+        return this.creditoService.consult(model.getCpf());
     }
 }

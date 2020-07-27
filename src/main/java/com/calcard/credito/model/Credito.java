@@ -3,27 +3,36 @@ package com.calcard.credito.model;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class Credito {
 
+    public Credito() {}
+
+    public Credito(Cliente cliente, double limiteMaximo, double limiteMinimo, String motivo, boolean aprovado) {
+        this.cliente = cliente;
+        this.limiteMaximo = limiteMaximo;
+        this.limiteMinimo = limiteMinimo;
+        this.motivo = motivo;
+        this.aprovado = aprovado;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
     @OneToOne
     private Cliente cliente;
     private Boolean aprovado;
-    private BigDecimal limiteMinino;
-    private BigDecimal limiteMaximo;
+    private double limiteMinimo;
+    private double limiteMaximo;
     private String motivo;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -43,19 +52,19 @@ public class Credito {
         this.aprovado = aprovado;
     }
 
-    public BigDecimal getLimiteMinino() {
-        return limiteMinino;
+    public double getLimiteMinimo() {
+        return limiteMinimo;
     }
 
-    public void setLimiteMinino(BigDecimal limiteMinino) {
-        this.limiteMinino = limiteMinino;
+    public void setLimiteMinimo(double limiteMinimo) {
+        this.limiteMinimo = limiteMinimo;
     }
 
-    public BigDecimal getLimiteMaximo() {
+    public double getLimiteMaximo() {
         return limiteMaximo;
     }
 
-    public void setLimiteMaximo(BigDecimal limiteMaximo) {
+    public void setLimiteMaximo(double limiteMaximo) {
         this.limiteMaximo = limiteMaximo;
     }
 

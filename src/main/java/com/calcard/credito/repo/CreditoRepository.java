@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface CreditoRepository extends CrudRepository<Credito, Long> {
     Credito findByCliente_Cpf(String cpf);
+    void deleteByCliente_Id(Long id);
 }
